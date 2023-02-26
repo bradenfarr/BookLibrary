@@ -1,7 +1,7 @@
 let list = document.getElementById('bookList');
 let addBook = document.querySelector('.addItem')
-let removeBook = document.querySelector('.removeItem')
 let deleteList = document.querySelector('.clearList')
+let sidebar = document.querySelector('.sidebar')
 
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
@@ -9,43 +9,66 @@ list.addEventListener('click', function(ev) {
   }
 });
 
+var myNodelist = document.querySelectorAll('.closebtn');
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
 addBook.addEventListener('click', function() {
-    createLI()
-  });
+  var li = document.createElement("li");
+  var inp = document.createElement("input");
+  var btn = document.createElement("button");
+  addBook.setAttribute("class", "noHover");
+  btn.innerHTML = "Add";
+  list.appendChild(li);
+  li.appendChild(inp);
+  li.appendChild(btn);
+  inp.setAttribute("type", "text");
+  inp.setAttribute("id", "bookTitle");
+  inp.setAttribute("maxlenght", "40");
+  //add new book with user input
+  btn.onclick = function(){
+    var inputValue = document.getElementById('bookTitle').value
+    var newli = document.createElement("li");
+    var t = document.createTextNode(inputValue);
+    newli.appendChild(t);
+    if (inputValue === '') {
+      alert("Please enter a book title.");
+    } else {
+      document.getElementById('bookList').appendChild(newli);
+      // add close button
+      newli.setAttribute("class", "closebtn");
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      newli.appendChild(span);
 
- function createLI() {
-     var ul = document.getElementById("bookList");
-     var li = document.createElement("li");
-     li.setAttribute("title", "Click to change read status"); // added line
-     ul.appendChild(li);
- }
-
-
-
-
-
-//   function newElement() {
-//     var li = document.createElement("li");
-//     var inputValue = document.getElementById("myInput").value;
-//     var t = document.createTextNode(inputValue);
-//     li.appendChild(t);
-//     if (inputValue === '') {
-//       alert("You must write something!");
-//     } else {
-//       document.getElementById("myUL").appendChild(li);
-//     }
-//     document.getElementById("myInput").value = "";
-  
-//     var span = document.createElement("SPAN");
-//     var txt = document.createTextNode("\u00D7");
-//     span.className = "close";
-//     span.appendChild(txt);
-//     li.appendChild(span);
-  
-//     for (i = 0; i < close.length; i++) {
-//       close[i].onclick = function() {
-//         var div = this.parentElement;
-//         div.style.display = "none";
-//       }
-//     }
-//   }
+      li.remove();
+      btn.remove();
+      inp.remove();
+      addBook.removeAttribute("class", "noHover");
+    };
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
+      }
+    }
+    newli.setAttribute("title", "Click to change read status");
+  };
+});

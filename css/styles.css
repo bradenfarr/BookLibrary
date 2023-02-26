@@ -1,25 +1,25 @@
 @font-face {
-    font-family: 'Nunito';
-    src: url(../Resources/Nunito-Light.ttf);
-  }
-  
-  @font-face {
-    font-family: 'Poppins';
-    src: url(../Resources/Poppins-Medium.ttf);
-  }
-  
-  * {
-    font-family: 'Nunito';
-    box-sizing: border-box;
-  }
+  font-family: 'Nunito';
+  src: url(../Resources/Nunito-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url(../Resources/Poppins-Medium.ttf);
+}
+
+* {
+  font-family: 'Nunito';
+  box-sizing: border-box;
+}
 
 body {
-    background-color: #4F7942;
+  background-color: #4F7942;
 }
 
 img {
-    height: 80px;
-    width: 80px;
+  height: 80px;
+  width: 80px;
 }
 
 
@@ -27,42 +27,42 @@ img {
 /* NavBar styles */
 
 ul {
-    list-style-type: none;
-    display: flex;
-    margin-left: -30px;
-    flex-direction: column;
+  list-style-type: none;
+  display: flex;
+  margin-left: -30px;
+  flex-direction: column;
 }
 
 .sidebar li {
-    font-family: 'Poppins';
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-    margin-top: 40px;
-    cursor: pointer;
+  font-family: 'Poppins';
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin-top: 40px;
+  cursor: pointer;
 }
 
 .sidebar li p {
-    display: flex;
-    margin-left: 20px;
-    color: black;
+  display: flex;
+  margin-left: 20px;
+  color: black;
 }
 
 .sidebar {
-    height: 100vh;
-    width: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #dad7cd;
-    overflow: hidden;
+  width: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #dad7cd;
+  overflow: hidden;
 }
 
 .sidebar:hover{
-    width: 230px;
-    transition: 0.1s;
-    overflow:visible
+  width: 230px;
+  transition: 0.1s;
+  overflow:visible
 }
 
 
@@ -70,56 +70,58 @@ ul {
 /* Book List Styles */
 
 .myList {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
-    font-size: 50px;
-    margin: 0;
-    padding: 0;
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
 }
 
 .myList ul {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .myList ul li {
-    cursor: pointer;
-    position: relative;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 18px;
-    transition: 0.2s;
-    font-size: 30px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-    background-color: #A9BA9D;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+  cursor: pointer;
+  position: relative;
+  padding: 10px;
+  padding-right: 40px;
+  margin-top: 10px;
+  font-size: 18px;
+  transition: 0.2s;
+  font-size: 30px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  background-color: #A9BA9D;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 .myList ul li.checked {
-    background: #888;
-    color: #fff;
-    text-decoration: line-through;
-  }
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
 
-.tooltipRead {
-    position:relative;
-  }
+.noHover{
+  pointer-events: none;
+}
 
-.tooltipRead .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    position: absolute;
-    z-index: 1;
-  }
+.close {
+position: absolute;
+right: 0;
+top: 0;
+padding: 10px;
+}
+
+.close:hover {
+background-color: #f44336;
+color: white;
+margin-left: 10px;
+}

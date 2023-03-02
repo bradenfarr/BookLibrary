@@ -72,3 +72,7 @@ addBook.addEventListener('click', function() {
     newli.setAttribute("title", "Click to change read status");
   };
 });
+
+deleteList.addEventListener('click', function() {
+  document.querySelectorAll(".closebtn").forEach(e => e.remove());
+});
